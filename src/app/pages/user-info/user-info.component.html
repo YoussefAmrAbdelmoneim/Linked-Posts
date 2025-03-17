@@ -1,0 +1,392 @@
+<section class="w-full min-h-screen bg-gray-100 dark:bg-gray-900">
+  <div class="relative h-64 bg-gray-300 dark:bg-gray-700">
+    <img
+      [src]="userData().photo" 
+      alt="Cover Photo"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute -bottom-16 left-8">
+      <div class="relative"> 
+        <img
+          [src]="userData().photo"
+          [alt]="userData().name + ' photo'"
+          class="w-32 h-32 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"
+        />
+        <div
+          class="absolute bottom-0 right-0 bg-white dark:bg-gray-800 p-2 rounded-full shadow-md cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        >
+          <label for="image" class="cursor-pointer">
+            <i class="fa-solid fa-camera text-gray-700 dark:text-gray-300"></i>
+            <span class="sr-only">Upload profile picture</span>
+          </label>
+          <input type="file" (change)="changeImage($event)" id="image" hidden />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="px-8 pt-20 pb-6 bg-white dark:bg-gray-800 shadow-sm">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+      {{ userData().name }}
+    </h1>
+    <p class="text-gray-600 dark:text-gray-300 mt-2">{{ userData().email }}</p>
+  </div>
+  <div
+    class="max-w-7xl mx-auto px-8 py-6 grid grid-cols-1 lg:grid-cols-4 gap-8"
+  >
+    <div class="lg:col-span-1 space-y-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+          About
+        </h2>
+        <div class="space-y-3">
+          <div>
+            <span class="text-gray-600 dark:text-gray-300">Date of Birth:</span>
+            <span class="text-gray-800 dark:text-white block">{{
+              userData().dateOfBirth
+            }}</span>
+          </div>
+          <div>
+            <span class="text-gray-600 dark:text-gray-300">Gender:</span>
+            <span class="text-gray-800 dark:text-white block">{{
+              userData().gender
+            }}</span>
+          </div>
+          <div>
+            <span class="text-gray-600 dark:text-gray-300">Member Since:</span>
+            <span class="text-gray-800 dark:text-white block">{{
+              userData().createdAt | date
+            }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+          Friends <span class="text-gray-400">(6 friends)</span>
+        </h2>
+        <div class="grid grid-cols-3 gap-4">
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/1d5f38c05780e4eb4fe06d9934e9993e.jpg"
+              alt="Friend"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <span class="text-gray-800 dark:text-white mt-2 text-center"
+              >John Doe</span
+            >
+            <button
+              class="text-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 mt-1"
+            >
+              Message
+            </button>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/5335569.jpg"
+              alt="Friend"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <span class="text-gray-800 dark:text-white mt-2 text-center"
+              >Jane Smith</span
+            >
+            <button
+              class="text-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 mt-1"
+            >
+              Message
+            </button>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/a0344df4339a0ec92aacfb635e1399ff.jpg"
+              alt="Friend"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <span class="text-gray-800 dark:text-white mt-2 text-center"
+              >Alice Johnson</span
+            >
+            <button
+              class="text-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 mt-1"
+            >
+              Message
+            </button>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/e96b5762683efa5ce748bcba73cea085.jpg"
+              alt="Friend"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <span class="text-gray-800 dark:text-white mt-2 text-center"
+              >Bob Williams</span
+            >
+            <button
+              class="text-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 mt-1"
+            >
+              Message
+            </button>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/OIP.jfif"
+              alt="Friend"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <span class="text-gray-800 dark:text-white mt-2 text-center"
+              >Charlie Brown</span
+            >
+            <button
+              class="text-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 mt-1"
+            >
+              Message
+            </button>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src="/images/zqoyv8stvzv61.png"
+              alt="Friend"
+              class="w-24 h-24 rounded-lg object-cover"
+            />
+            <span class="text-gray-800 dark:text-white mt-2 text-center"
+              >Eva Green</span
+            >
+            <button
+              class="text-sm text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 mt-1"
+            >
+              Message
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-2 space-y-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+        <input
+          (click)="openModal()"
+          type="text"
+          placeholder="What's on your mind?"
+          class="w-full p-3 text-lg bg-gradient-to-r from-purple-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-600 dark:focus:border-purple-600 transition-all"
+          data-modal-target="modal"
+          data-modal-toggle="modal"
+          readonly 
+        /> 
+      </div>
+      <div 
+          id="post-modal"
+          tabindex="-1"
+          aria-hidden="true"
+          [class.hidden]="!isModalOpen()"
+          class="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-[rgba(0,0,0,0.4)] bg-opacity-50"
+        >
+          <div class="relative w-full max-w-2xl max-h-full p-4">
+            <div class="relative bg-gradient-to-r from-purple-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 rounded-lg shadow-lg">
+              <div class="flex items-center justify-between p-6 border-b rounded-t dark:border-gray-700 border-gray-200">
+                <h3 class="text-2xl font-semibold text-gray-900 dark:text-white">Create a Post</h3>
+                <button
+                  type="button"
+                  (click)="closeModal()"
+                  class="end-2.5 cursor-pointer text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                >
+                  <svg
+                    class="w-3 h-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 14"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                    />
+                  </svg>
+                  <span class="sr-only">Close modal</span>
+                </button>
+              </div>
+              <div class="p-6">
+                <form class="space-y-6" action="#">
+                  <div>
+                    <textarea
+                      [(ngModel)]="content"
+                      [ngModelOptions]="{ standalone: true }"
+                      id="post-content"
+                      rows="6"
+                      class="w-full dark:text-white p-4 text-base bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 dark:focus:ring-purple-600 dark:focus:border-purple-600 transition-all resize-none"
+                      placeholder="What's on your mind?"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <label
+                      for="file-upload"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Upload Image
+                    </label>
+                    <div class="flex items-center justify-center w-full">
+                      <label
+                        for="file-upload"
+                        class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                      >
+                        <svg
+                          class="w-8 h-8 text-gray-400 dark:text-gray-300 mb-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
+                        </svg>
+                        <span class="text-sm text-gray-500 dark:text-gray-400">Click to upload or drag and drop</span>
+                        <input
+                          (change)="ChangeImage($event)"
+                          type="file"
+                          id="file-upload"
+                          class="hidden"
+                        />
+                      </label>
+                    </div>
+                  </div>
+                  <button
+                    (click)="createPost()"
+                    type="submit"
+                    class="w-full cursor-pointer text-white bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-base px-5 py-3 text-center dark:from-purple-600 dark:to-indigo-700 dark:hover:from-purple-700 dark:hover:to-indigo-800 dark:focus:ring-purple-800 transition-all"
+                  >
+                    Post
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="relative z-10">
+        @for (post of posts(); track post.id) {
+        <article
+          class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-6 rounded-lg overflow-hidden"
+        >
+          <div
+            class="flex justify-between items-center pb-4 border-b border-gray-200 dark:border-gray-700"
+          >
+            <div class="flex items-center gap-3">
+              <img
+                [src]="post.user.photo"
+                class="w-12 h-12 rounded-full object-cover border-2 border-gray-200 dark:border-gray-600"
+                [alt]="post.user.name"
+              />
+              <div>
+                <h3 class="font-semibold text-lg text-gray-900 dark:text-white">
+                  {{ post.user.name }}
+                </h3>
+                <span class="text-sm text-gray-500 dark:text-gray-400">
+                  {{ post.createdAt | date }}
+                </span>
+              </div>
+            </div>
+            <button
+              (click)="deletePost(post._id)"
+              class="p-2 cursor-pointer rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <i class="fas fa-trash text-red-500"></i>
+            </button>
+          </div>
+          <div class="pt-4">
+            <p class="text-gray-700 dark:text-gray-300 mb-4">
+              {{ post.body }}
+            </p>
+            <img
+              [src]="post.image"
+              class="w-full h-64 object-cover rounded-lg border-2 border-gray-200 dark:border-gray-600"
+              [alt]="post.user.name + ' post image'"
+            />
+          </div>
+          <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+            <a
+              #comment
+              class="text-blue-500 cursor-pointer dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors"
+            >
+              Show comments
+            </a>
+          </div>
+          @defer (on interaction(comment)) {
+          <app-comments [postId]="post.id"></app-comments>
+          }@placeholder {
+          <div
+            class="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg text-center text-gray-500 dark:text-gray-400"
+          >
+            Click "Show comments" to load comments.
+          </div>
+          }
+        </article>
+        } @empty {
+        <p class="text-gray-700 dark:text-gray-300 p-4">No posts available.</p>
+        } @if (isLoading()) {
+        <div
+          role="status"
+          class="animate-pulse flex flex-col gap-4 p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md"
+        >
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 bg-gray-300 dark:bg-gray-700 rounded-full"
+            ></div>
+            <div class="flex-1">
+              <div
+                class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full w-24 mb-2"
+              ></div>
+              <div
+                class="h-2 bg-gray-300 dark:bg-gray-700 rounded-full w-16"
+              ></div>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div
+              class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full w-full"
+            ></div>
+            <div
+              class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full w-5/6"
+            ></div>
+            <div
+              class="h-3 bg-gray-300 dark:bg-gray-700 rounded-full w-4/6"
+            ></div>
+          </div>
+          <div
+            class="w-full h-48 bg-gray-300 dark:bg-gray-700 rounded-lg"
+          ></div>
+          <div class="h-2 bg-gray-300 dark:bg-gray-700 rounded-full w-16"></div>
+
+          <span class="sr-only">Loading...</span>
+        </div>
+        }
+      </div>
+    </div>
+    <div class="lg:col-span-1 space-y-6">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+          Suggestions
+        </h2>
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <img
+              src="/images/bussiness-man.png"
+              alt="Suggestion"
+              class="w-10 h-10 rounded-full"
+            />
+            <div>
+              <h3 class="font-semibold text-gray-900 dark:text-white">
+                Youssef
+              </h3>
+              <span class="text-sm text-gray-500 dark:text-gray-400"
+                >40 Mutual Friends</span
+              >
+            </div>
+            <button class="ml-auto text-blue-500 hover:text-blue-600">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,94 @@
+<section class="absolute w-full top-40 ">
+    <div class="container mx-auto">
+      <div class="header text-center mb-8">
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Linked Posts
+        </h1>
+      </div>
+      <div class="w-11/12 mx-auto bg-white dark:bg-gray-900 rounded-xl shadow-2xl p-8 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
+        <h2 class="mb-6 font-bold text-2xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          Login Now
+        </h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class=" mb-6">
+            <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
+                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
+              </svg>
+            </div>
+            <input formControlName="email"
+              type="text"
+              id="input-group-1"
+              class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-12 p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="name@flowbite.com"
+            />
+          </div>
+          @if (loginForm.get("email")?.errors && loginForm.get("email")?.touched) {
+            <div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+              <svg class="shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+              </svg>
+              <span class="sr-only">Info</span>
+             
+              <div class="ms-3 text-sm font-medium">
+               @if (loginForm.get("email")?.getError('required')) {
+                <span>email is required.</span>
+               }
+               @else if (loginForm.get("email")?.getError('email')) {
+                <span>Please enter a valid email address.</span>
+               }
+              </div>
+            </div>
+          }
+          </div>
+          <div class="mb-6">
+            <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+              <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+                <path d="M14 7h-1.5V4.5a4.5 4.5 0 1 0-9 0V7H2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Zm-5 8a1 1 0 1 1-2 0v-3a1 1 0 1 1 2 0v3Zm1.5-8h-5V4.5a2.5 2.5 0 1 1 5 0V7Z"/>
+              </svg>
+            </div>
+            <input formControlName="password"
+              type="password"
+              id="input-group-2"
+              class="bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-12 p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="••••••••"
+            /></div>
+            @if (loginForm.get("password")?.errors && loginForm.get("password")?.touched) {
+              <div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                <svg class="shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                </svg>
+                <span class="sr-only">Info</span> 
+                
+                <div class="ms-3 text-sm font-medium">
+                 @if (loginForm.get("password")?.getError('required')) { 
+                  <span>password is required.</span>
+                 }
+                 @else if (loginForm.get("password")?.getError('minlength')) {
+                  <span>Password must be at least 8 characters long.</span>
+                 }
+                 @else if (loginForm.get("password")?.getError('pattern')) {
+                  <span>Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</span>
+                 }
+                </div>
+              </div>
+            }
+          </div>
+          <button
+            class="w-full p-3 cursor-pointer rounded-lg text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg"
+          >
+            Sign in
+          </button>
+        </form>
+        <div class="mt-6 text-center text-gray-600 dark:text-gray-400">
+          Not registered? 
+          <span routerLink="/register" class="text-blue-600 dark:text-purple-400 hover:underline cursor-pointer">
+            Create account
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
