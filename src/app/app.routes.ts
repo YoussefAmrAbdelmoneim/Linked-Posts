@@ -8,17 +8,19 @@ import { authGuard } from './core/guard/auth/auth.guard';
 import { loggedGuard } from './core/guard/logged/logged.guard';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { UserInfoComponent } from './pages/user-info/user-info.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
     {path:'', component:AuthLayoutComponent,canActivate:[loggedGuard],children:[
         {path:'',redirectTo:'login',pathMatch:'full'},
         {path:'login',component:LoginComponent,title:"Login"},
-        {path:"register",component:RegisterComponent,title:"Register"}
-    ] },
+        {path:"register",component:RegisterComponent,title:"Register"} 
+    ] }, 
     {path:'',component:MainLayoutComponent,canActivate:[authGuard],children:[
         {path:'',redirectTo:'home',pathMatch:'full'},
         {path:'home',component:HomeComponent,title:'Home'},
         {path:'user-info',component:UserInfoComponent,title:'Info'},
-        {path:'change-password',component:ChangePasswordComponent,title:'Change Password'}
+        {path:'change-password',component:ChangePasswordComponent,title:'Change Password'},
+        {path:'**',component:NotFoundComponent,title:'Not Found'}
     ]},
 ];
